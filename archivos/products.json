@@ -1,5 +1,5 @@
 {
-     "lastId": 1,
+     "lastId": 6,
      "products": [
           {
                "title": "Producto 1",
@@ -10,6 +10,56 @@
                "code": 2,
                "status": true,
                "id": 1
+          },
+          {
+               "title": "Producto 1",
+               "description": "algodon",
+               "price": 100,
+               "thumbnail": "sin imagen",
+               "stock": 1,
+               "code": 2,
+               "status": true,
+               "id": 2
+          },
+          {
+               "title": "Producto 1",
+               "description": "algodon",
+               "price": 100,
+               "thumbnail": "sin imagen",
+               "stock": 1,
+               "code": 2,
+               "status": true,
+               "id": 3
+          },
+          {
+               "title": "Producto 1",
+               "description": "algodon",
+               "price": 100,
+               "thumbnail": "sin imagen",
+               "stock": 1,
+               "code": 2,
+               "status": true,
+               "id": 4
+          },
+          {
+               "title": "Producto 1",
+               "description": "algodon",
+               "price": 100,
+               "thumbnail": "sin imagen",
+               "stock": 1,
+               "code": 2,
+               "status": true,
+               "id": 5
+          },
+          {
+               "title": "Producto 1",
+               "description": "algodon",
+               "price": 100,
+               "thumbnail": "sin imagen",
+               "stock": 1,
+               "code": 2,
+               "status": true,
+               "id": 6
           }
      ]
 }

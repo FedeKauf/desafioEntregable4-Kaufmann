@@ -1,0 +1,10 @@
+<h1>Productos</h1>
+<button id="nuevo">Nuevo producto</button>
+<ol id="productList">
+  {{#each products}}
+    <li>{{this.title}}</li>
+  {{/each}}
+</ol>
+
+<script src="socket.io/socket.io.js"></script>
+<script src="assets/scripts/home.js"></script>

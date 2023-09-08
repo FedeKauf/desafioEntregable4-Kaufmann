@@ -8,21 +8,21 @@ router.get('/', async (req, res) => {
     let limit = req.query.limit
     const products = await pm.getProducts()
     if(limit){
-        res.status(200).render('home', {products:products.slice(0,limit)});
+        res.status(200).json({products:products.slice(0,limit)});
     }else{
-        res.status(200).render('home', {products});
+        res.status(200).json({products});
     }
 })
 
 router.get('/:pid', async (req, res) => {
     let {pid}=req.params
-    console.log(req.params.pid)
+    
     pid=parseInt(pid)
     if(isNaN(pid)){
         res.json({status:'error', mensaje: 'Requiere2 un argumento id numerico'})
         return
     }  
-    let resultado = await ProductManager.pm.getProductsById(pid)
+    let resultado = await pm.getProductsById(pid)
 
     if(resultado){
         res.json({status: 'ok', producto: resultado })
@@ -32,8 +32,7 @@ router.get('/:pid', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    console.log("aca")
-    console.log(req.body)
+
     let {title,description,price, thumbnail, stock, code} = req.body
     if(!title || !description || !price || !stock  || !code) return res.status(400).json({error: 'Los campos no pueden estar vacíos'})
     let nuevoProductoId = await pm.addProduct (title, description, price, thumbnail, stock, code)
@@ -51,7 +50,7 @@ router.put('/:pid', async (req, res) => {
         res.json({status:'error', mensaje: 'Requiere1 un argumento id numerico'})
         return
     }  
-    let producto = await ProductManager.pm.getProductsById(pid)
+    let producto = await pm.getProductsById(pid)
 
     if(!producto){
         return res.json({status:'error', mensaje: `El producto con ID: ${pid} no existe`})
@@ -64,18 +63,18 @@ router.put('/:pid', async (req, res) => {
     producto.code=code ? code:producto.code
     producto.status=status ? status:producto.status
 
-    ProductManager.pm.updateProduct(producto)
+    pm.updateProduct(producto)
     return res.status(200).json({mensaje: 'Se modificó el producto', producto})
 })
 router.delete('/:pid', async (req, res) => {
     let {pid}=req.params
-    console.log(req.params.pid)
+    
     pid=parseInt(pid)
     if(isNaN(pid)){
         res.json({status:'error', mensaje: 'Requiere0 un argumento id numerico'})
         return
     }  
-    let resultado = await ProductManager.pm.deleteProduct(pid)
+    let resultado = await pm.deleteProduct(pid)
 
     if(resultado){
         res.json({status: 'ok', mensaje: 'Producto eliminado'})

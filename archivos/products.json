@@ -26,15 +26,6 @@
                "stock": "2",
                "code": "12",
                "status": true,
-               "id": 6
-          },
-          {
-               "title": "Buzo",
-               "description": "nada",
-               "price": "100",
-               "stock": "2",
-               "code": "12",
-               "status": true,
                "id": 7
           },
           {
